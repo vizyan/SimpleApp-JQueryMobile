@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title> Tugas Modul 1 </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="jquery/jquery.mobile-1.4.5.min.css">
+    <script src="jquery/jquery.min.js"></script>
+    <script src="jquery/jquery.mobile-1.4.5.min.js"></script>
+    <script type="text/javascript" src="js/slider.js"></script>
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <style>
+
+    .footer {
+      position: fixed;
+      left: 0 ; right: 0; bottom: 0;
+      background: linear-gradient(to right, #F6A05A , #E76686);
+    }
+
+    .identitas {
+      margin-left: 50px;
+      font-size: 18px;
+    }
+
+    .ui-page .ui-header{
+      background: linear-gradient(to right, #F6A05A , #E76686);
+    }
+
+    /* START SLIDESHOW */
+
+    .mySlides {display:none}
+
+    /* Slideshow container */
+    .slideshow-container {
+      max-width: 1000px;
+      position: relative;
+      margin: auto;
+    }
+
+    /* Next & previous buttons */
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -45px;
+      color: #FAFAFA;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+    }
+
+    /* Position the "next button" to the right */
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover, .next:hover {
+      background: linear-gradient(to right, #F6A05A , #E76686);
+      color: linear-gradient(to right, #F6A05A , #E76686);
+    }
+
+    /* The dots/bullets/indicators */
+    .dot {
+      cursor:pointer;
+      height: 13px;
+      width: 13px;
+      margin: 0 2px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+    }
+
+    .active, .dot:hover {
+      background-color: #717171;
+    }
+
+    /* Fading animation */
+    .fade {
+      -webkit-animation-name: fade;
+      -webkit-animation-duration: 1.5s;
+      animation-name: fade;
+      animation-duration: 1.5s;
+    }
+
+    @-webkit-keyframes fade {
+      from {opacity: .4}
+      to {opacity: 1}
+    }
+
+    @keyframes fade {
+      from {opacity: .4}
+      to {opacity: 1}
+    }
+
+    .bgslide{
+      text-align: center;
+      padding-top: 10px;
+    }
+
+    /* END SLIDESHOW */
+
+    </style>
+  </head>
+
+  <body>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <div data-role="page" id="pageone">
+      <div data-role="header" data-position="fixed">
+        <font color="white"><h5><center>Kelompok 03</center></h5></font>
+      </div>
+
+      <div role="main" class="ui-content">
+
+        <!-- SLIDESHOW -->
+        <div class="slideshow-container">
+          <div class="mySlides fade">
+            <img src="img/slide1.jpg" style="width:100%">
+          </div>
+          <div class="mySlides fade">
+            <img src="img/slide2.jpg" style="width:100%">
+          </div>
+          <div class="mySlides fade">
+            <img src="img/slide3.jpg" style="width:100%">
+          </div>
+          <a class="prev" onclick="plusSlides(-1)"><font color="white">&#10094;</font></a>
+          <a class="next" onclick="plusSlides(1)"><font color="white">&#10095;</font></a>
+          <div class="bgslide">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+          </div>
+        </div>
+
+        <script type="text/javascript">
+          var slideIndex = 1;
+          showSlides(slideIndex);
+
+          function plusSlides(n) {
+            showSlides(slideIndex += n);
+          }
+
+          function currentSlide(n) {
+            showSlides(slideIndex = n);
+          }
+
+          function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+              slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+              dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";
+            dots[slideIndex-1].className += " active";
+          }
+
+        </script>
+
+        <div id="quotes">
+          <br>
+          <center>
+          <h5>Quotes of the week: <br><br>
+            "Manners Maketh Mans" <br> - Harry </h5>
+          </center>
+          <br>
+          <br>
+          <center>
+            <a href="#pagetwo" class="waves-effect waves-light btn deep-orange accent-2" style="text-transform:none; font-weight:normal;">
+              <font color="white">Start</font></a>
+          </center>
+        </div>
+
+        <div data-role="footer" class="footer">
+          <font color="white"><h5><center>Tugas Modul 1</center></h5></font>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div data-role="page" id="pagetwo">
+    		<div data-role="header" data-position="fixed" class="header">
+    			<a href="#pageone" class="ui-btn ui-icon-home ui-btn-icon-left">Back</a>
+          <font color="white"><h5><center>Kelompok 03</center></h5></font>
+          <div data-role="navbar">
+            <ul>
+              <li><a href="#pagetwo" data-icon="home">Main</a></li>
+              <li><a href="#aboutpage" data-icon="info">About</a></li>
+            </ul>
+          </div>
+
+    		</div><!-- /header -->
+
+    	 	<div role="main" class="ui-content">
+
+          <div id="quotes">
+            <center><h5>Kuliah hari ini : <br><br></h5>
+            </center>
+          </div>
+
+          <ul class="collapsible popout" data-collapsible="accordion">
+            <li>
+              <div class="collapsible-header grey lighten-5">Senin</div>
+              <div class="collapsible-body grey lighten-5">
+                <span><p>SE : 07.00 - 08.40<br>
+                  KAP : 08.40 - 10.20<br>
+                  JARKOM II : 13.40 - 15.20</p>
+                </span>
+              </div>
+            </li>
+            <li>
+              <div class="collapsible-header grey lighten-5">Selasa</div>
+              <div class="collapsible-body grey lighten-5">
+                <span><p> PBO : 07.00 - 09.30<br>
+                  PROGJAR : 10.20 - 12.00</p>
+                </span>
+              </div>
+            </li>
+            <li>
+              <div class="collapsible-header grey lighten-5">Rabu</div>
+              <div class="collapsible-body grey lighten-5">
+                <span><p>BPR : 10.20 - 12.00</p>
+                </span>
+              </div>
+            </li>
+          </ul>
+
+          <script type="text/javascript">
+            $(document).ready(function(){
+              $('.collapsible').collapsible();
+            });
+          </script>
+
+          <center>
+            <a href="#video" data-rel="popup" data-position-to="window" class="waves-effect waves-light btn deep-orange accent-2" style="text-transform:none; font-weight:normal;">
+              <font color="white">Video</font></a>
+            <a href="#foto" data-rel="popup" data-position-to="window" class="waves-effect waves-light btn deep-orange accent-2" style="text-transform:none; font-weight:normal;">
+              <font color="white">Foto</font></a>
+            <div data-role="popup" id="video" class="photopopup" data-overlay-theme="a" data-corners="false">
+              <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+              <video width="380" controls>
+                <source src="img/avicii.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div data-role="popup" id="foto" class="photopopup" data-overlay-theme="a" data-corners="false" data-tolerance="30,15">
+              <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a><img src="img/kucing.jpg" alt="Photo portrait">
+            </div>
+          </center>
+
+        </div>
+
+        <div data-role="footer" class="footer">
+          <font color="white"><h5><center>Tugas Modul 1</center></h5></font>
+        </div>
+
+    </div>
+
+    <div data-role="page" id="aboutpage" >
+      <div data-role="header" data-position="fixed" class="header">
+        <a href="#pageone" class="ui-btn ui-icon-home ui-btn-icon-left">Back</a>
+        <font color="white"><h5><center>Kelompok 03</center></h5></font>
+        <div data-role="navbar">
+          <ul>
+            <li><a href="#pagetwo" data-icon="home">Main</a></li>
+            <li><a href="#aboutpage" data-icon="info">About</a></li>
+          </ul>
+        </div>
+      </div><!-- /header -->
+
+    	<div role="main" class="ui-content">
+        <ul data-role="listview" data-inset="true">
+          <li><a href="#vian">Pramudya Erviansyah</a></li>
+          <li><a href="#bima">Bima Fajar Setiawan</a></li>
+        </ul>
+      </div><!-- /content -->
+
+      <div data-role="footer" class="footer">
+        <font color="white"><h5><center>Tugas Modul 1</center></h5></font>
+      </div>
+
+    </div>
+
+    <div data-role="page" id="vian" >
+      <div data-role="header" data-position="fixed" class="header">
+        <a href="#aboutpage" class="ui-btn ui-icon-home ui-btn-icon-left">Back</a>
+        <font color="white"><h5><center>Kelompok 03</center></h5></font>
+        <div data-role="navbar">
+          <ul>
+            <li><a href="#pagetwo" data-icon="home">Main</a></li>
+            <li><a href="#aboutpage" data-icon="info">About</a></li>
+          </ul>
+        </div>
+      </div><!-- /header -->
+
+    	<div role="main" class="ui-content">
+        <center><img src="img/vian.jpg" style="height:200px; width:150px"></center>
+        <div class="identitas">
+          <p>Nama&nbsp;&nbsp;: Pramudya Erviansyah <br>
+             NIM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 21120115130055 <br>
+             Shift&nbsp;&nbsp;&nbsp;&nbsp;: 1 </p>
+        </div>
+      </div><!-- /content -->
+
+      <div data-role="footer" class="footer">
+        <font color="white"><h5><center>Tugas Modul 1</center></h5></font>
+      </div>
+
+    </div>
+
+    <div data-role="page" id="bima" >
+      <div data-role="header" data-position="fixed" class="header">
+        <a href="#aboutpage" class="ui-btn ui-icon-home ui-btn-icon-left">Back</a>
+        <font color="white"><h5><center>Kelompok 03</center></h5></font>
+        <div data-role="navbar">
+          <ul>
+            <li><a href="#pagetwo" data-icon="home">Main</a></li>
+            <li><a href="#aboutpage" data-icon="info">About</a></li>
+          </ul>
+        </div>
+      </div><!-- /header -->
+
+    	<div role="main" class="ui-content">
+        <center><img src="img/bima.jpg" style="height:200px; width:150px"></center>
+        <div class="identitas">
+          <p>Nama&nbsp;&nbsp;: Bima Fajar Setiawan <br>
+             NIM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 21120115140088 <br>
+             Shift&nbsp;&nbsp;&nbsp;&nbsp;: 1 </p>
+        </div>
+      </div><!-- /content -->
+
+      <div data-role="footer" class="footer">
+        <font color="white"><h5><center>Tugas Modul 1</center></h5></font>
+      </div>
+
+    </div>
+
+  </body>
+
+</html>
